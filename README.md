@@ -1,122 +1,72 @@
-# PySpark + Delta Lake
+# PySpark/Delta Lake/Apache Iceberg
 
-A simple environment for learning and experimenting with **PySpark 3.4.2** and **Delta Lake 2.4.0**, using **Poetry** for dependency management.
+Um ambiente simples para aprender e experimentar com **PySpark 3.4.2** e **Delta Lake 2.4.0**, usando **Poetry** para gerenciamento de dependências.
 
-## Requirements
+## Requisitos
 
-Before starting, make sure you have:
+Antes de começar, certifique-se de ter:
 
 - [Linux / WSL](https://learn.microsoft.com/pt-br/windows/wsl/install)
 - [Java 17](https://linuxvox.com/blog/how-to-install-java-on-linux/)
-- Python 3.11
-- Poetry
+- [Python 3.11](https://python.org.br/instalacao-linux/)
+- [Poetry](https://python-poetry.org/docs/)
 
-> This project uses PySpark 3.4.2 and Delta Lake 2.4.0.
+> Esse Projeto Usa PySpark 3.4.2 e Delta Lake 2.4.0.
 
-## 1. Install Java
-
-Check if Java is already installed:
-
-```bash
-java -version
-```
-
-If it isn't installed, on Ubuntu:
-
-```bash
-sudo apt update
-sudo apt install openjdk-17-jdk
-```
-
-Verify:
-
-```bash
-java -version
-```
-
-## 2. Install Poetry
-
-If Poetry isn't installed, follow the official installation instructions:
-
-https://python-poetry.org/docs/#installation
-
-Verify the installation:
-
-```bash
-poetry --version
-```
-
-## 3. Clone the project
+## 1. Clone o repositório
 
 ```bash
 git clone https://github.com/acittadin/projeto_pesquisa_spark.git
 cd projeto_pesquisa_spark
 ```
 
-## 4. Install dependencies
+## 2. Instalar dependencias
 
-Install the project dependencies with Poetry:
+Instale as dependencias do projeto com Poetry:
 
 ```bash
 poetry install
 ```
 
-The main dependencies are:
+As dependências principais  são:
 
 ```text
 PySpark     3.4.2
 Delta Lake  2.4.0
 ```
 
-You can verify the installed packages with:
+Verifique os pacotes com:
 
 ```bash
 poetry show
 ```
 
-## 5. Verify PySpark
+## 3. JupyterLab
+Jupyter não é necessário para PySpark ou Delta Lake, porém sera usado nesse projeto como uma ferramenta.
 
-Check the installed PySpark version:
-
-```bash
-poetry run python -c "import pyspark; print(pyspark.__version__)"
-```
-
-Expected output:
-
-```text
-3.4.2
-```
-
-## 9. JupyterLab (Optional)
-
-Jupyter isn't required for PySpark or Delta Lake.
-
-It can be useful for experimenting with Spark interactively, especially while learning.
-
-Install it with:
+Instale-o com:
 
 ```bash
 poetry add jupyterlab
 ```
 
-Start it with:
+E inicie com:
 
 ```bash
 poetry run jupyter lab
 ```
 
 
-## Versions
+## Versões
 
-| Component | Version |
+| Componentes | Versões |
 |---|---:|
 | Python | 3.11 |
 | PySpark | 3.4.2 |
 | Delta Lake | 2.4.0 |
 | Scala | 2.12 |
 | Java | 17 |
-| Dependency Manager | Poetry |
+| Gerenciador de Dependencias | Poetry |
 
 ## License
 
