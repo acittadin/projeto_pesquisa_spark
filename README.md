@@ -1,73 +1,71 @@
-# PySpark/Delta Lake/Apache Iceberg
+# PySpark / Delta Lake / Apache Iceberg
 
-Um ambiente simples para aprender e experimentar com **PySpark 3.4.2** e **Delta Lake 2.4.0**, usando **Poetry** para gerenciamento de dependências.
+Um ambiente de pesquisa e experimentação construído para demonstrar e comparar o uso de **PySpark 3.4.2** com **Delta Lake 2.4.0** e **Apache Iceberg 1.4.1**, utilizando **Poetry** para o gerenciamento de dependências.
 
 ## Requisitos
 
-Antes de começar, certifique-se de ter:
+Ambas as tecnologias (Delta e Iceberg) rodam sobre o mesmo motor (Apache Spark) e requerem a mesma infraestrutura base. Antes de começar, certifique-se de ter:
 
 - [Linux / WSL](https://learn.microsoft.com/pt-br/windows/wsl/install)
 - [Java 17](https://linuxvox.com/blog/how-to-install-java-on-linux/)
-- [Python 3.11](https://python.org.br/instalacao-linux/)
+- [Python 3.11](https://python.org.br/instalacao-linux/) *(Nota: PySpark 3.4.2 é incompatível com Python 3.12+)*
 - [Poetry](https://python-poetry.org/docs/)
 
-> Esse Projeto Usa PySpark 3.4.2 e Delta Lake 2.4.0.
+> **Stack do Projeto:** PySpark 3.4.2 | Delta Lake 2.4.0 | Apache Iceberg 1.4.1
 
 ## 1. Clone o repositório
 
 ```bash
-git clone https://github.com/acittadin/projeto_pesquisa_spark.git
+git clone [https://github.com/acittadin/projeto_pesquisa_spark.git](https://github.com/acittadin/projeto_pesquisa_spark.git)
 cd projeto_pesquisa_spark
 ```
 
-## 2. Instalar dependencias
+## 2. Instalar dependências (Poetry)
 
-Instale as dependencias do projeto com Poetry:
+O gerenciamento de pacotes Python é feito exclusivamente com o Poetry. Crie o ambiente e instale as dependências com:
 
 ```bash
+poetry env use python3.11
 poetry install
 ```
 
-As dependências principais  são:
+### 💡 Diferença crucial: Como o Delta e o Iceberg são carregados?
+Para que as duas ferramentas funcionem no mesmo projeto, adotamos abordagens diferentes e complementares:
+*   **Delta Lake:** Instalado como um pacote Python (`delta-spark 2.4.0`) diretamente pelo Poetry.
+*   **Apache Iceberg:** Não requer um pacote Python separado no Poetry. Ele é baixado dinamicamente em tempo de execução via dependência Maven (`org.apache.iceberg:iceberg-spark-runtime-3.4_2.12:1.4.1`) nas configurações da `SparkSession` dentro do notebook.
 
-```text
-PySpark     3.4.2
-Delta Lake  2.4.0
-```
-
-Verifique os pacotes com:
-
+Verifique os pacotes Python instalados com:
 ```bash
 poetry show
 ```
 
-## 3. JupyterLab
-Jupyter não é necessário para PySpark ou Delta Lake, porém sera usado nesse projeto como uma ferramenta.
+## 3. JupyterLab e Organização do Código
 
-Instale-o com:
+O JupyterLab não é obrigatório para o PySpark, mas será usado neste projeto como a interface interativa para documentar os Modelos ER, os códigos DDL e as operações DML.
 
+Adicione e inicie o JupyterLab no ambiente do Poetry:
 ```bash
 poetry add jupyterlab
-```
-
-E inicie com:
-
-```bash
 poetry run jupyter lab
 ```
 
+### 📂 Estrutura de Testes
+O projeto está dividido em notebooks distintos para separar os contextos:
+*   `delta.ipynb`: Demonstração da criação de tabelas e operações DML utilizando a API de DataFrames do Delta Lake.
+*   `iceberg.ipynb`: Demonstração equivalente utilizando Spark SQL puro focado no formato Apache Iceberg.
 
 ## Versões
 
-| Componentes | Versões |
+| Componente | Versão |
 |---|---:|
-| Python | 3.11 |
-| PySpark | 3.4.2 |
-| Delta Lake | 2.4.0 |
-| Scala | 2.12 |
-| Java | 17 |
-| Gerenciador de Dependencias | Poetry |
+| **Python** | 3.11 |
+| **PySpark** | 3.4.2 |
+| **Delta Lake** | 2.4.0 |
+| **Apache Iceberg** | 1.4.1 |
+| **Scala** | 2.12 |
+| **Java** | 17 |
+| **Gerenciador de Dependências** | Poetry |
 
-## License
+## Licença
 
-Add your project's license here.
+Adicione a licença do projeto aqui.
