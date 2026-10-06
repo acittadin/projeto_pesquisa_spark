@@ -1,0 +1,8 @@
+site_name: Projeto Spark (Delta e Iceberg)
+theme:
+  name: material
+nav:
+  - Contextualização: index.md
+  - Apache Spark: spark.md
+  - Apache Iceberg: iceberg.md
+  - Delta Lake: delta.md
