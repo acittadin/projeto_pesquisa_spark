@@ -4,3 +4,7 @@ __pycache__/
 
 data/
 .ipynb_checkpoints/
+# artefatos gerados pelo Spark/Iceberg
+spark-warehouse/
+iceberg/spark-warehouse/
+*.crc
