@@ -1,17 +1,14 @@
 # Apache Iceberg
 
-O **Apache Iceberg** é um formato de tabela aberto e de alto desempenho projetado especificamente para grandes cargas de trabalho analíticas em Data Lakes.
+## Visão Geral
+O **Apache Iceberg** é um formato de tabela de alto desempenho projetado para grandes conjuntos de dados analíticos em um Data Lake. Ele traz a confiabilidade e a simplicidade de um banco de dados relacional tradicional (como suporte a transações ACID e evolução de esquema) diretamente para arquivos armazenados em object storage (como S3, ADLS ou GCS).
 
-## Características Principais
-* **Viagem no Tempo (Time Travel) e Rollback:** Permite consultar o estado exato dos dados em um ponto específico no tempo ou reverter alterações indesejadas com facilidade.
-* **Evolução de Esquema Segura:** Suporta alterações estruturais em tabelas (como adicionar, renomear ou reordenar colunas) sem reescrever arquivos de dados inteiros.
-* **Planejamento de Consultas Otimizado:** Utiliza metadados baseados em árvore e estatísticas avançadas de partições para ignorar arquivos irrelevantes durante as consultas SQL.
+## Características Técnicas
+O Iceberg gerencia arquivos através de um catálogo e árvores de metadados, separando o planejamento da consulta dos dados brutos. Suas principais características incluem:
 
-## Importância para o Projeto
-O Iceberg garante a independência de ferramentas, permitindo que diferentes motores de consulta leiam os mesmos dados de forma consistente, confiável e com isolamento de transações.# Apache Iceberg
+* **Evolução de Esquema:** Permite alterar colunas (adicionar, remover ou renomear) de forma segura sem reescrever os arquivos de dados subjacentes.
+* **Gerenciamento de Partições Oculto:** O motor de processamento lida com o particionamento automaticamente, livrando o usuário de especificar filtros rígidos nas consultas.
+* **Viagem no Tempo (Time Travel):** Possibilidade de consultar snapshots históricos dos dados para auditoria e reproducibilidade.
 
-O Apache Iceberg é um formato de tabela aberto e de alto desempenho projetado para tabelas analíticas gigantes em Data Lakes. 
-
-Ele é fundamental para o projeto pois permite:
-* **Viagem no Tempo (Time Travel):** Mantém um histórico de alterações na tabela, permitindo consultar dados do passado.
-* **Transações ACID:** Garante que operações como INSERT, UPDATE e DELETE ocorram de forma totalmente segura.
+## Benefícios no Projeto
+A utilização do Apache Iceberg no projeto garante que consultas analíticas pesadas executadas pelo Spark encontrem dados consistentes, particionados de forma eficiente e protegidos contra problemas de concorrência.

@@ -1,17 +1,14 @@
 # Delta Lake
 
-O **Delta Lake** é uma camada de armazenamento de código aberto que traz confiabilidade, segurança e desempenho para Data Lakes baseados em nuvem ou ambientes locais.
+## Visão Geral
+O **Delta Lake** é uma camada de armazenamento de código aberto que traz confiabilidade para os Data Lakes. Construído sobre o formato de arquivos Parquet, ele adiciona uma camada de log de transações em formato JSON que gerencia o estado das tabelas e garante consistência em ambientes de processamento concorrente.
 
-## Pilares Tecnológicos
-* **Transações ACID:** Garante consistência total (Atomicidade, Consistência, Isolamento e Durabilidade) em operações de leitura e escrita concorrentes.
-* **Delta Log (Log de Transações):** Um registro JSON ordenado que rastreia atômicamente todas as adições e remoções de arquivos, eliminando visualizações parciais ou corrompidas.
-* **Otimização e Compactação:** Oferece recursos nativos como *OPTIMIZE* (compactação de arquivos pequenos) e *VACUUM* (limpeza de versões antigas obsoletas).
+## Principais Mecanismos
+O Delta Lake combina o armazenamento econômico de um data lake com a robustez transacional de um data warehouse. Os principais benefícios são:
 
-## Aplicação no Projeto
-Utilizamos o Delta Lake para viabilizar operações **DML seguras** (como `UPDATE`, `DELETE` e `MERGE INTO`), permitindo gerenciar atualizações incrementais de dados com a mesma facilidade de um banco de dados relacional tradicional.# Delta Lake
+* **Transações ACID:** Garante atomicidade, consistência, isolamento e durabilidade nas operações de escrita em tabelas no Data Lake.
+* **Time Travel e Rollback:** Mantém um histórico de versões das transações, permitindo auditar alterações ou reverter estados em caso de falhas.
+* **Otimização de Performance:** Utiliza o formato Parquet otimizado com metadados transacionais em JSON para consultas extremamente rápidas.
 
-O Delta Lake é um projeto de código aberto que adiciona uma camada de confiabilidade e desempenho em cima de Data Lakes existentes. 
-
-Suas principais características que estamos demonstrando neste projeto incluem:
-* **Delta Log:** Um log de transações que rastreia todas as alterações feitas na tabela, garantindo a confiabilidade dos dados.
-* **Operações DML Seguras:** Graças ao log, podemos executar comandos robustos de UPDATE, DELETE e MERGE sem risco de quebrar o sistema.
+## Integração com o Spark
+Como o Delta Lake é totalmente integrado ao ecosistema Spark, operações de leitura e escrita (`format("delta")`) tornam-se nativas e altamente otimizadas para fluxos de engenharia de dados modernos (arquitetura Medallion: camadas Bronze, Silver e Gold).
