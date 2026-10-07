@@ -3,11 +3,9 @@
 Este projeto demonstra o uso do Apache Spark junto com Delta Lake e Apache Iceberg para processamento de dados.
 
 ## Cenário e Dataset
-**[AVISO PARA A EQUIPE: ESCREVAM AQUI QUAL É O TEMA DO BANCO DE DADOS E DE ONDE BAIXAMOS O DATASET]**
+O projeto consiste no desenvolvimento de um sistema de gerenciamento escolar, tendo como tela principal uma tabela de estudantes. Nela, serão exibidas informações como nome, id, grade, cpf. Permitindo cadastrar, consultar, editar e excluir estudantes. O banco de dados também poderá armazenar informações relacionadas a turmas, professores, disciplinas, notas e frequência, aplicando conceitos de relacionamentos, chaves e operações CRUD.
 
 ## Modelo ER
-Abaixo está o nosso Modelo de Entidade Relacionamento. 
-
-**[AVISO PARA A EQUIPE: SALVEM A IMAGEM DO MODELO AQUI NA PASTA 'docs' COM O NOME 'modelo_er.png' PARA ELA APARECER AQUI EMBAIXO]**
+Abaixo está o nosso Modelo de Entidade Relacionamento.
 
 ![Modelo ER](modelo_er.png)
